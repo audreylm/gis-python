@@ -1,0 +1,9 @@
+##Clip Raster Dataset by known extent - Left Bottom Right Top
+
+import arcpy
+arcpy.env.workspace = "C:/Workspace"
+    
+
+arcpy.Clip_management(
+    "image.tif","1952602.23 294196.279 1953546.23 296176.279",
+    "clip.gdb/clip", "#", "#", "NONE")
