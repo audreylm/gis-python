@@ -1,0 +1,19 @@
+import arcpy
+# there are also SearchCursor and InsertCursor functions
+# UpdateCursor (dataset, {where_clause}, {spatial_reference}, {fields}, {sort_fields})
+features = arcpy.UpdateCursor(r"C:\temp\Structures.shp")
+for feature in features:
+    if feature.structuretype == 3:
+        feature.structuretype = 4
+        features.updateRow(feature)
+# remove cursor object so data is not locked
+del feature,features
+
+import arcpy
+
+# rows = arcpy.UpdateCursor("clipped_roads_openstreetmap", "'osm_id' = '31570262'" , "", "", "")
+# for row in rows:
+    # row.setValue("fclass", "primary")
+# rows.updateRow(row)
+# del row
+# del rows
